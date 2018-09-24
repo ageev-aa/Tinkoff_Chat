@@ -1,5 +1,5 @@
 *.xccheckout
- *.xcscmblueprint
- */build/*
- */DerivedData/*
- */xcuserdata/*
+*.xcscmblueprint
+*/build/*
+*/DerivedData/*
+*/xcuserdata/*
