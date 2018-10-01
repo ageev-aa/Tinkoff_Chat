@@ -1,24 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ProfileViewController" customModule="TinkoffChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-user" translatesAutoresizingMaskIntoConstraints="NO" id="tKa-1N-GRH">
+                                <rect key="frame" x="16" y="66" width="382" height="382"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tKa-1N-GRH" secondAttribute="height" multiplier="1:1" id="ffn-Z8-I08"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hB8-mM-Gzy">
+                                <rect key="frame" x="310" y="360" width="88" height="88"/>
+                                <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="AiT-Vh-X1a"/>
+                                    <constraint firstAttribute="width" constant="88" id="aXL-KP-dZh"/>
+                                    <constraint firstAttribute="width" secondItem="hB8-mM-Gzy" secondAttribute="height" multiplier="1:1" id="wEZ-Kq-tg5"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
+                                <state key="normal" image="slr-camera-2-xxl"/>
+                                <connections>
+                                    <action selector="setProfilePhototAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fg1-P2-zqY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HnH-cp-kMv">
+                                <rect key="frame" x="16" y="804" width="382" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Редактировать">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Aleksandr Ageev" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xbU-oW-iBS">
+                                <rect key="frame" x="16" y="467" width="382" height="39"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hello, my name is Aleksandr. Work in Tinkoff Bank, Analyst. Stady math in Moscow State University." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wai-4e-DMi">
+                                <rect key="frame" x="16" y="514" width="382" height="258"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <constraints>
+                            <constraint firstItem="yEd-NL-1tx" firstAttribute="trailing" secondItem="xbU-oW-iBS" secondAttribute="trailing" constant="16" id="3XZ-ve-3xQ"/>
+                            <constraint firstItem="HnH-cp-kMv" firstAttribute="leading" secondItem="yEd-NL-1tx" secondAttribute="leading" constant="16" id="7X3-DQ-5lj"/>
+                            <constraint firstItem="yEd-NL-1tx" firstAttribute="trailing" secondItem="tKa-1N-GRH" secondAttribute="trailing" constant="16" id="CIs-yW-T1U"/>
+                            <constraint firstItem="tKa-1N-GRH" firstAttribute="leading" secondItem="yEd-NL-1tx" secondAttribute="leading" constant="16" id="IUy-kG-grT"/>
+                            <constraint firstItem="hB8-mM-Gzy" firstAttribute="bottom" secondItem="tKa-1N-GRH" secondAttribute="bottom" id="NoC-4L-1m9"/>
+                            <constraint firstItem="tKa-1N-GRH" firstAttribute="top" secondItem="yEd-NL-1tx" secondAttribute="top" constant="22" id="WWl-ir-8wn"/>
+                            <constraint firstItem="xbU-oW-iBS" firstAttribute="leading" secondItem="yEd-NL-1tx" secondAttribute="leading" constant="16" id="gXl-L6-Tr2"/>
+                            <constraint firstItem="wai-4e-DMi" firstAttribute="top" secondItem="xbU-oW-iBS" secondAttribute="bottom" constant="8" id="lR9-38-5g8"/>
+                            <constraint firstItem="yEd-NL-1tx" firstAttribute="trailing" secondItem="wai-4e-DMi" secondAttribute="trailing" constant="16" id="qaL-MK-7Vk"/>
+                            <constraint firstItem="xbU-oW-iBS" firstAttribute="top" secondItem="tKa-1N-GRH" secondAttribute="bottom" constant="19" id="s0f-rq-pxp"/>
+                            <constraint firstItem="yEd-NL-1tx" firstAttribute="trailing" secondItem="HnH-cp-kMv" secondAttribute="trailing" constant="16" id="uU3-J5-4DY"/>
+                            <constraint firstItem="HnH-cp-kMv" firstAttribute="top" secondItem="wai-4e-DMi" secondAttribute="bottom" constant="32" id="xhJ-D7-kfr"/>
+                            <constraint firstItem="hB8-mM-Gzy" firstAttribute="trailing" secondItem="tKa-1N-GRH" secondAttribute="trailing" id="xhs-n1-Bv7"/>
+                            <constraint firstItem="wai-4e-DMi" firstAttribute="leading" secondItem="yEd-NL-1tx" secondAttribute="leading" constant="16" id="z97-jb-ZVF"/>
+                            <constraint firstItem="yEd-NL-1tx" firstAttribute="bottom" secondItem="HnH-cp-kMv" secondAttribute="bottom" constant="20" id="zq2-qf-1vU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yEd-NL-1tx"/>
                     </view>
+                    <connections>
+                        <outlet property="addPhotoButton" destination="hB8-mM-Gzy" id="v6g-bC-6g1"/>
+                        <outlet property="editProfileButton" destination="HnH-cp-kMv" id="d3i-Nz-dCl"/>
+                        <outlet property="profileDescriptionTextView" destination="wai-4e-DMi" id="V7n-px-BIP"/>
+                        <outlet property="profilePhotoImageView" destination="tKa-1N-GRH" id="fcq-Pm-YCU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="61.600000000000001" y="27.436281859070466"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholder-user" width="600" height="600"/>
+        <image name="slr-camera-2-xxl" width="256" height="256"/>
+    </resources>
 </document>
