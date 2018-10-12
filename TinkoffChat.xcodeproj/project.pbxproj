@@ -14,6 +14,15 @@
 		1F9DF4D321596EAF00A1EDC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F9DF4D121596EAF00A1EDC9 /* LaunchScreen.storyboard */; };
 		1F9DF4DE21596EB000A1EDC9 /* TinkoffChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9DF4DD21596EB000A1EDC9 /* TinkoffChatTests.swift */; };
 		1F9DF4E921596EB000A1EDC9 /* TinkoffChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9DF4E821596EB000A1EDC9 /* TinkoffChatUITests.swift */; };
+		1F9F44A02166B1A9006940C2 /* ConversationsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F449F2166B1A9006940C2 /* ConversationsListViewController.swift */; };
+		1F9F44A22166B570006940C2 /* ConversationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F44A12166B570006940C2 /* ConversationsTableViewCell.swift */; };
+		1F9F44A4216BB063006940C2 /* ConversationCellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F44A3216BB063006940C2 /* ConversationCellConfiguration.swift */; };
+		1F9F44A6216BB0BC006940C2 /* ConversationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F44A5216BB0BC006940C2 /* ConversationModel.swift */; };
+		1F9F44A8216BC272006940C2 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F44A7216BC272006940C2 /* ConversationViewController.swift */; };
+		1F9F44B1216E9B53006940C2 /* MessageCellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F44B0216E9B53006940C2 /* MessageCellConfiguration.swift */; };
+		1F9F44B3216E9B7F006940C2 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F44B2216E9B7F006940C2 /* MessageModel.swift */; };
+		1F9F44B5216E9C83006940C2 /* IncomingMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F44B4216E9C83006940C2 /* IncomingMessageTableViewCell.swift */; };
+		1F9F44B7216E9C96006940C2 /* OutgoingMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F44B6216E9C96006940C2 /* OutgoingMessageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +56,15 @@
 		1F9DF4E421596EB000A1EDC9 /* TinkoffChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinkoffChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9DF4E821596EB000A1EDC9 /* TinkoffChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinkoffChatUITests.swift; sourceTree = "<group>"; };
 		1F9DF4EA21596EB000A1EDC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F9F449F2166B1A9006940C2 /* ConversationsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsListViewController.swift; sourceTree = "<group>"; };
+		1F9F44A12166B570006940C2 /* ConversationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsTableViewCell.swift; sourceTree = "<group>"; };
+		1F9F44A3216BB063006940C2 /* ConversationCellConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCellConfiguration.swift; sourceTree = "<group>"; };
+		1F9F44A5216BB0BC006940C2 /* ConversationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationModel.swift; sourceTree = "<group>"; };
+		1F9F44A7216BC272006940C2 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		1F9F44B0216E9B53006940C2 /* MessageCellConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCellConfiguration.swift; sourceTree = "<group>"; };
+		1F9F44B2216E9B7F006940C2 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		1F9F44B4216E9C83006940C2 /* IncomingMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessageTableViewCell.swift; sourceTree = "<group>"; };
+		1F9F44B6216E9C96006940C2 /* OutgoingMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessageTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +115,17 @@
 		1F9DF4C721596E8200A1EDC9 /* TinkoffChat */ = {
 			isa = PBXGroup;
 			children = (
+				1F9F44AF216E9AEE006940C2 /* Conversation */,
 				1F9DF4C821596E8300A1EDC9 /* AppDelegate.swift */,
 				1F9DF4CA21596E8300A1EDC9 /* ProfileViewController.swift */,
 				1F9DF4CC21596E8300A1EDC9 /* Main.storyboard */,
 				1F9DF4CF21596EAE00A1EDC9 /* Assets.xcassets */,
 				1F9DF4D121596EAF00A1EDC9 /* LaunchScreen.storyboard */,
 				1F9DF4D421596EAF00A1EDC9 /* Info.plist */,
+				1F9F449F2166B1A9006940C2 /* ConversationsListViewController.swift */,
+				1F9F44A12166B570006940C2 /* ConversationsTableViewCell.swift */,
+				1F9F44A3216BB063006940C2 /* ConversationCellConfiguration.swift */,
+				1F9F44A5216BB0BC006940C2 /* ConversationModel.swift */,
 			);
 			path = TinkoffChat;
 			sourceTree = "<group>";
@@ -123,6 +146,18 @@
 				1F9DF4EA21596EB000A1EDC9 /* Info.plist */,
 			);
 			path = TinkoffChatUITests;
+			sourceTree = "<group>";
+		};
+		1F9F44AF216E9AEE006940C2 /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				1F9F44A7216BC272006940C2 /* ConversationViewController.swift */,
+				1F9F44B0216E9B53006940C2 /* MessageCellConfiguration.swift */,
+				1F9F44B2216E9B7F006940C2 /* MessageModel.swift */,
+				1F9F44B4216E9C83006940C2 /* IncomingMessageTableViewCell.swift */,
+				1F9F44B6216E9C96006940C2 /* OutgoingMessageTableViewCell.swift */,
+			);
+			path = Conversation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +291,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F9F44A8216BC272006940C2 /* ConversationViewController.swift in Sources */,
+				1F9F44A22166B570006940C2 /* ConversationsTableViewCell.swift in Sources */,
 				1F9DF4CB21596E8300A1EDC9 /* ProfileViewController.swift in Sources */,
+				1F9F44B1216E9B53006940C2 /* MessageCellConfiguration.swift in Sources */,
 				1F9DF4C921596E8300A1EDC9 /* AppDelegate.swift in Sources */,
+				1F9F44A4216BB063006940C2 /* ConversationCellConfiguration.swift in Sources */,
+				1F9F44B5216E9C83006940C2 /* IncomingMessageTableViewCell.swift in Sources */,
+				1F9F44B3216E9B7F006940C2 /* MessageModel.swift in Sources */,
+				1F9F44B7216E9C96006940C2 /* OutgoingMessageTableViewCell.swift in Sources */,
+				1F9F44A6216BB0BC006940C2 /* ConversationModel.swift in Sources */,
+				1F9F44A02166B1A9006940C2 /* ConversationsListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,6 +14,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var addPhotoButton: UIButton!
     @IBOutlet weak var profileDescriptionTextView: UITextView!
+    @IBAction func closeProfileViewControllerAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     @IBAction func setProfilePhototAction(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
