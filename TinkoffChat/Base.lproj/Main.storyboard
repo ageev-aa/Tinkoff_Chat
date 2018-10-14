@@ -109,6 +109,70 @@
             </objects>
             <point key="canvasLocation" x="60.869565217391312" y="26.785714285714285"/>
         </scene>
+        <!--Themes View Controller-->
+        <scene sceneID="jw2-R1-w5S">
+            <objects>
+                <viewController storyboardIdentifier="themeViewController" id="lAJ-Gx-Any" customClass="ThemesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JA7-vn-rb5"/>
+                        <viewControllerLayoutGuide type="bottom" id="j0A-VV-HmL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sTG-ru-pcB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYn-lO-WcU">
+                                <rect key="frame" x="191.5" y="303" width="31" height="30"/>
+                                <state key="normal" title="Blue"/>
+                                <connections>
+                                    <action selector="firstThemeAction:" destination="lAJ-Gx-Any" eventType="touchUpInside" id="GM2-zE-id9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79r-5S-Cop">
+                                <rect key="frame" x="186" y="433" width="42" height="30"/>
+                                <state key="normal" title="Green"/>
+                                <connections>
+                                    <action selector="secondThemeAction:" destination="lAJ-Gx-Any" eventType="touchUpInside" id="IH6-mO-4s0"/>
+                                </connections>
+                            </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hp3-RC-z3v">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Theme" id="ICR-up-Wv6">
+                                        <barButtonItem key="leftBarButtonItem" title="Done" id="Cy6-oZ-ktA">
+                                            <connections>
+                                                <action selector="closeThemeViewControllerAction:" destination="lAJ-Gx-Any" id="AKi-Lf-QGf"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v81-iJ-6bc">
+                                <rect key="frame" x="185" y="563" width="44" height="30"/>
+                                <state key="normal" title="Yellow"/>
+                                <connections>
+                                    <action selector="thirdThemeAction:" destination="lAJ-Gx-Any" eventType="touchUpInside" id="Jzf-F9-tFv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hp3-RC-z3v" firstAttribute="top" secondItem="JA7-vn-rb5" secondAttribute="bottom" id="M2f-sQ-51m"/>
+                            <constraint firstItem="oYn-lO-WcU" firstAttribute="centerX" secondItem="sTG-ru-pcB" secondAttribute="centerX" id="Mju-di-gN9"/>
+                            <constraint firstItem="v81-iJ-6bc" firstAttribute="centerX" secondItem="sTG-ru-pcB" secondAttribute="centerX" id="OXp-g9-ayk"/>
+                            <constraint firstAttribute="trailing" secondItem="hp3-RC-z3v" secondAttribute="trailing" id="OiA-8F-Bj9"/>
+                            <constraint firstItem="v81-iJ-6bc" firstAttribute="top" secondItem="79r-5S-Cop" secondAttribute="bottom" constant="100" id="Uuj-PV-Hqb"/>
+                            <constraint firstItem="79r-5S-Cop" firstAttribute="centerY" secondItem="sTG-ru-pcB" secondAttribute="centerY" id="ZnX-rF-Uil"/>
+                            <constraint firstItem="79r-5S-Cop" firstAttribute="top" secondItem="oYn-lO-WcU" secondAttribute="bottom" constant="100" id="g4g-r3-yNZ"/>
+                            <constraint firstItem="79r-5S-Cop" firstAttribute="centerX" secondItem="sTG-ru-pcB" secondAttribute="centerX" id="rY3-KC-swZ"/>
+                            <constraint firstItem="hp3-RC-z3v" firstAttribute="leading" secondItem="sTG-ru-pcB" secondAttribute="leading" id="wHy-Ly-SF9"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iaz-iA-qt5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="78" y="719"/>
+        </scene>
         <!--Conversation View Controller-->
         <scene sceneID="fcz-B4-bUb">
             <objects>
@@ -277,6 +341,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Tinkoff Chat" id="UMh-ax-QAe">
+                        <barButtonItem key="leftBarButtonItem" title="Theme" id="9SG-m3-jEx">
+                            <connections>
+                                <action selector="showThemeViewControllerAction:" destination="bnv-IW-ghQ" id="PdU-V5-Bo4"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="cls-fr-r2H">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="coverVertical" id="xTH-Mz-4hW"/>

@@ -8,8 +8,15 @@
 
 import UIKit
 
-class ConversationsListViewController: UITableViewController {
+class ConversationsListViewController: UITableViewController, ThemesViewControllerDelegate {
 
+    @IBAction func showThemeViewControllerAction(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let themeViewController = storyboard.instantiateViewController(withIdentifier: "themeViewController") as! ThemesViewController
+        themeViewController.delegate = self
+        self.present(themeViewController, animated: true, completion: nil)
+    }
+    
     var allConversations: [[ConversationModel]] = [ConversationModel.onlineConversations, ConversationModel.historyConversations]
     
     
@@ -50,15 +57,12 @@ class ConversationsListViewController: UITableViewController {
         
         navigationController?.pushViewController(vc,animated: true)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    // MARK: - ThemesViewControllerDelegate
+    
+    func themesViewController(_ controller: ThemesViewController!, didSelectTheme selectedTheme: UIColor!) {
+        if let color = selectedTheme{
+            self.view.backgroundColor = color
+        }
     }
-    */
-
 }
