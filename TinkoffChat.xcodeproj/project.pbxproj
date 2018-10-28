@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F1ADBC8217B994000F21668 /* GCDDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1ADBC7217B994000F21668 /* GCDDataManager.swift */; };
+		1F1ADBCA217B998300F21668 /* OperationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1ADBC9217B998300F21668 /* OperationDataManager.swift */; };
+		1F1ADBCE217E41FA00F21668 /* ProfileDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1ADBCD217E41FA00F21668 /* ProfileDataManager.swift */; };
+		1F1ADBF12185C65A00F21668 /* ThemeDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1ADBF02185C65A00F21668 /* ThemeDataManager.m */; };
 		1F21D92F2171394C00D76ECA /* ThemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F21D92D2171394C00D76ECA /* ThemesViewController.m */; };
 		1F21D93221713A6800D76ECA /* Themes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F21D93121713A6800D76ECA /* Themes.m */; };
 		1F9DF4C921596E8300A1EDC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9DF4C821596E8300A1EDC9 /* AppDelegate.swift */; };
@@ -45,6 +49,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F1ADBC7217B994000F21668 /* GCDDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDDataManager.swift; sourceTree = "<group>"; };
+		1F1ADBC9217B998300F21668 /* OperationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationDataManager.swift; sourceTree = "<group>"; };
+		1F1ADBCD217E41FA00F21668 /* ProfileDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataManager.swift; sourceTree = "<group>"; };
+		1F1ADBEF2185C65A00F21668 /* ThemeDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeDataManager.h; sourceTree = "<group>"; };
+		1F1ADBF02185C65A00F21668 /* ThemeDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeDataManager.m; sourceTree = "<group>"; };
 		1F21D92C2171394C00D76ECA /* ThemesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemesViewController.h; sourceTree = "<group>"; };
 		1F21D92D2171394C00D76ECA /* ThemesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemesViewController.m; sourceTree = "<group>"; };
 		1F21D92E2171394C00D76ECA /* TinkoffChat-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TinkoffChat-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -120,6 +129,8 @@
 				1F21D93021713A6800D76ECA /* Themes.h */,
 				1F21D93121713A6800D76ECA /* Themes.m */,
 				1F21D93321713AFE00D76ECA /* ThemesViewControllerDelegate.h */,
+				1F1ADBEF2185C65A00F21668 /* ThemeDataManager.h */,
+				1F1ADBF02185C65A00F21668 /* ThemeDataManager.m */,
 			);
 			path = Themes;
 			sourceTree = "<group>";
@@ -156,6 +167,9 @@
 				1F9DF4CF21596EAE00A1EDC9 /* Assets.xcassets */,
 				1F9DF4D121596EAF00A1EDC9 /* LaunchScreen.storyboard */,
 				1F9DF4D421596EAF00A1EDC9 /* Info.plist */,
+				1F1ADBC7217B994000F21668 /* GCDDataManager.swift */,
+				1F1ADBC9217B998300F21668 /* OperationDataManager.swift */,
+				1F1ADBCD217E41FA00F21668 /* ProfileDataManager.swift */,
 			);
 			path = TinkoffChat;
 			sourceTree = "<group>";
@@ -326,12 +340,16 @@
 				1F9F44A22166B570006940C2 /* ConversationsTableViewCell.swift in Sources */,
 				1F21D92F2171394C00D76ECA /* ThemesViewController.m in Sources */,
 				1F9DF4CB21596E8300A1EDC9 /* ProfileViewController.swift in Sources */,
+				1F1ADBC8217B994000F21668 /* GCDDataManager.swift in Sources */,
 				1F9F44B1216E9B53006940C2 /* MessageCellConfiguration.swift in Sources */,
 				1F9DF4C921596E8300A1EDC9 /* AppDelegate.swift in Sources */,
 				1F9F44A4216BB063006940C2 /* ConversationCellConfiguration.swift in Sources */,
 				1F21D93221713A6800D76ECA /* Themes.m in Sources */,
+				1F1ADBCE217E41FA00F21668 /* ProfileDataManager.swift in Sources */,
 				1F9F44B5216E9C83006940C2 /* IncomingMessageTableViewCell.swift in Sources */,
 				1F9F44B3216E9B7F006940C2 /* MessageModel.swift in Sources */,
+				1F1ADBF12185C65A00F21668 /* ThemeDataManager.m in Sources */,
+				1F1ADBCA217B998300F21668 /* OperationDataManager.swift in Sources */,
 				1F9F44B7216E9C96006940C2 /* OutgoingMessageTableViewCell.swift in Sources */,
 				1F9F44A6216BB0BC006940C2 /* ConversationModel.swift in Sources */,
 				1F9F44A02166B1A9006940C2 /* ConversationsListViewController.swift in Sources */,
@@ -510,7 +528,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -535,7 +553,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";

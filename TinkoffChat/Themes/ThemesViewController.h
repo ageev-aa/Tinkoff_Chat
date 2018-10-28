@@ -9,13 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "Themes.h"
 #import "ThemesViewControllerDelegate.h"
+#import "ThemeDataManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ThemesViewController : UIViewController
 
-@property (strong, nonatomic) id <ThemesViewControllerDelegate> delegate;
+@property (weak, nonatomic) id <ThemesViewControllerDelegate> delegate;
 @property (strong, nonatomic) Themes * theme;
+@property (strong, nonatomic) ThemeDataManager * themeDataManager;
 
 @end
 

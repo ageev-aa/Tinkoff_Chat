@@ -8,15 +8,92 @@
 
 import UIKit
 
+
+
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    var nameEdited: Bool = false
+    var descriptionEdited: Bool = false
+    var profileImageEdited: Bool = false
+    var dataManager: ProfileDataManager = GCDDataManager()
+    let operationDataManager = OperationDataManager()
+    
+    
+    @IBOutlet var saveDataActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var profilePhotoImageView: UIImageView!
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var addPhotoButton: UIButton!
     @IBOutlet weak var profileDescriptionTextView: UITextView!
+    @IBOutlet var editDescriptionTextField: UITextField!
+    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var descriptionTextView: UITextView!
+    @IBOutlet var saveGCDButton: UIButton!
+    @IBOutlet var saveOperationButton: UIButton!
+    
     @IBAction func closeProfileViewControllerAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func editProfileAction(_ sender: Any) {
+        self.saveDataActivityIndicator.isHidden = true
+        self.saveGCDButton.isEnabled = false
+        self.saveOperationButton.isEnabled = false
+        self.editDescriptionTextField.isHidden = false
+        self.descriptionTextView.isHidden = true
+        self.editProfileButton.isHidden = true
+        self.addPhotoButton.isHidden = false
+        self.nameTextField.isUserInteractionEnabled = true
+        self.saveGCDButton.isHidden = false
+        self.saveOperationButton.isHidden = false
+        self.editDescriptionTextField.text = self.descriptionTextView.text
+    }
+    
+    @IBAction func saveGCDAction(_ sender: UIButton) {
+        if (sender.tag == 1){
+            self.dataManager = GCDDataManager()
+        } else {
+            self.dataManager = OperationDataManager()
+        }
+        
+        self.saveDataActivityIndicator.isHidden = false
+        self.saveDataActivityIndicator.startAnimating()
+        self.saveGCDButton.isEnabled = false
+        self.saveOperationButton.isEnabled = false
+        dataManager.saveSettings(name: self.nameTextField.text, description: self.editDescriptionTextField.text, image: self.profilePhotoImageView.image,  nameEdited: nameEdited, descriptionEdited: descriptionEdited, imageEdited: profileImageEdited,
+            onComplete: { () -> Void in
+                self.saveDataActivityIndicator.stopAnimating()
+                self.nameTextField.isUserInteractionEnabled = false
+                self.descriptionTextView.isHidden = false
+                self.editProfileButton.isHidden = false
+                self.editDescriptionTextField.isHidden = true
+                self.addPhotoButton.isHidden = true
+                self.saveGCDButton.isEnabled = false
+                self.saveOperationButton.isEnabled = false
+                self.saveGCDButton.isHidden = true
+                self.saveOperationButton.isHidden = true
+                self.nameEdited = false
+                self.descriptionEdited = false
+                self.profileImageEdited = false
+            
+                let successSavingAlertController = UIAlertController (title: "Information saved", message: "Press OK to continue", preferredStyle: .actionSheet)
+                successSavingAlertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(successSavingAlertController, animated: true, completion: nil)
+                self.setSettings()
+            },
+            onFailure: { () -> Void in
+                let failureSavingAlertController = UIAlertController (title: "Error", message: "Press OK to continue or Repeat", preferredStyle: .actionSheet)
+                failureSavingAlertController.addAction(UIAlertAction(title: "OK", style: .default, handler: {(action: UIAlertAction) in
+                    self.editProfileAction(sender)
+                }))
+                failureSavingAlertController.addAction(UIAlertAction(title: "Repeat", style: .default, handler: {(action: UIAlertAction) in
+                    self.saveGCDAction(sender)
+                }))
+
+                self.present(failureSavingAlertController, animated: true, completion: nil)
+                    
+        })
+    }
+    
     
     
     @IBAction func setProfilePhototAction(_ sender: Any) {
@@ -51,6 +128,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         let croppedImage = image?.cgImage?.cropping(to: CGRect(x:(image?.size.width)!/2 - min((image?.size.width)!, (image?.size.height)!)/2, y:(image?.size.height)!/2 - min((image?.size.width)!, (image?.size.height)!)/2, width:min((image?.size.width)!, (image?.size.height)!), height:min((image?.size.width)!, (image?.size.height)!)))
         self.profilePhotoImageView.image = UIImage(cgImage : croppedImage!)
+        self.profileImageEdited = true
+        self.saveGCDButton.isEnabled = true
+        self.saveOperationButton.isEnabled = true
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -60,16 +140,36 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        //print("\(#function): \(editProfileButton.frame)")
-        //unexpectedly found nil while unwrapping an Optional value
-        // на данном этапе view еще не существует, editButton = nil
     }
     
+    @objc func nameFieldDidChange(_ textField: UITextField) {
+        self.nameEdited = true
+        self.saveGCDButton.isEnabled = true
+        self.saveOperationButton.isEnabled = true
+    }
+    
+    @objc func descriptionFieldDidChange(_ textField: UITextField) {
+        self.descriptionEdited = true
+        self.saveGCDButton.isEnabled = true
+        self.saveOperationButton.isEnabled = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(editProfileButton.frame)
-        profileDescriptionTextView.isEditable = false
+        self.editDescriptionTextField.addTarget(self, action: #selector(ProfileViewController.descriptionFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        
+        self.nameTextField.addTarget(self, action: #selector(ProfileViewController.nameFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        self.saveGCDButton.isEnabled = false
+        self.saveOperationButton.isEnabled = false
+        self.addPhotoButton.isHidden = true
+        self.editDescriptionTextField.isHidden = true
+        self.nameTextField.isUserInteractionEnabled = false
+        self.saveGCDButton.isHidden = true
+        self.saveOperationButton.isHidden = true
+        self.profileDescriptionTextView.isEditable = false
+        
+        self.setSettings()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,15 +181,24 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         editProfileButton.layer.borderColor = UIColor.black.cgColor
     }
     
-    func openGallery(){
-        
+    func setSettings(){
+        dataManager.getSettings (onComplete: { (name: String?, description: String?, photo: UIImage?) in
+            if let unwrappedName = name {
+                self.nameTextField.text = unwrappedName
+            }
+            if let unwrappedDescription = description {
+                self.descriptionTextView.text = unwrappedDescription
+            }
+            if let unwrappedPhoto = photo {
+                self.profilePhotoImageView.image = unwrappedPhoto
+            }
+        })
     }
+
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print(editProfileButton.frame)
-        // отличаются, потому что во viewDidLoad данные берутся из сториборда. viewDidAppear вызывается после
-        // того, как view появляется на экране (и размеры уже известны)
     }
     
     override func viewWillLayoutSubviews() {

@@ -17,14 +17,18 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(IBAction)firstThemeAction:(id)sender {
-    [self.delegate themesViewController: self didSelectTheme: self.theme.theme1];
-}
--(IBAction)secondThemeAction:(id)sender {
-    [self.delegate themesViewController: self didSelectTheme: self.theme.theme2];
-}
--(IBAction)thirdThemeAction:(id)sender {
-    [self.delegate themesViewController: self didSelectTheme: self.theme.theme3];
+-(IBAction)chooseThemeAction:(UIButton*)sender {
+    self.themeDataManager = [[ThemeDataManager alloc] init];
+    if (sender.tag == 1){
+        [self.delegate themesViewController: self didSelectTheme: self.theme.theme1];
+        [self.themeDataManager saveTheme: @"theme1"];
+    } else if (sender.tag == 2){
+        [self.delegate themesViewController: self didSelectTheme: self.theme.theme2];
+        [self.themeDataManager saveTheme: @"theme2"];
+    }else if (sender.tag == 3){
+        [self.delegate themesViewController: self didSelectTheme: self.theme.theme3];
+        [self.themeDataManager saveTheme: @"theme3"];
+    }
 }
 
 - (void)viewDidLoad {
@@ -32,14 +36,6 @@
     self.theme = [[Themes alloc] init];
 }
 
-- (void)dealloc {
-    if(self.theme!=NULL){
-        [self.theme release];
-    }
-    if(self.delegate!=NULL){
-        [self.delegate release];
-    }
-    [super dealloc];
-}
 
 @end
+

@@ -18,12 +18,25 @@ class ConversationsListViewController: UITableViewController, ThemesViewControll
     }
     
     var allConversations: [[ConversationModel]] = [ConversationModel.onlineConversations, ConversationModel.historyConversations]
-    
+        var themeModel = Themes()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        let theme = UserDefaults.standard.string(forKey: "theme") as String?
+        if let unwrappedTheme = theme {
+            switch unwrappedTheme {
+            case "theme1":
+                self.themesViewController(nil, didSelectTheme: themeModel.theme1)
+            case "theme2":
+                self.themesViewController(nil, didSelectTheme: themeModel.theme2)
+            case "theme3":
+                self.themesViewController(nil, didSelectTheme: themeModel.theme3)
+            default:
+                UserDefaults.standard.removeObject(forKey:"theme")
+            }
+        }
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        super.viewDidLoad()
     }
     
     

@@ -21,12 +21,5 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-    if(self.theme1) [self.theme1 release];
-    if(self.theme2) [self.theme2 release];
-    if(self.theme3) [self.theme3 release];
-}
 
 @end
